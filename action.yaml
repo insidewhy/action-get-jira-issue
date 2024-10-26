@@ -1,0 +1,27 @@
+name: action-get-jira-issue
+description: Get jira issue summary and link
+author: insidewhy
+runs:
+  using: node20
+  main: lib/index.js
+branding:
+  icon: check-square
+  color: blue
+inputs:
+  user:
+    description: JIRA username (email address) of the user that created the token
+    required: true
+  base-url:
+    description: The subdomain of JIRA cloud e.g. "https://your-domain.atlassian.net"
+    required: true
+  token:
+    description: API Token used to access the JIRA REST API which must have read access to JIRA projects and issues.
+    required: true
+  ticket-id:
+    description: The jira ticket to retrieve
+    required: true
+outputs:
+  link:
+    description: Link to jira ticket
+  summary:
+    description: The summary which appers in the jira title
